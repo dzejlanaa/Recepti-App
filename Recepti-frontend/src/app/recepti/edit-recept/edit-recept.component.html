@@ -1,0 +1,31 @@
+
+<div *ngIf="urediRecept!=null && urediRecept.prikazi" class="modal fade show" id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel" aria-modal="true" role="dialog" style="display: block;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLiveLabel">Uredite podatke o receptu</h5>
+          <button type="button" class="btn-close" (click)="urediRecept.prikazi = false" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label class="form-label">Naziv recepta</label>
+            <input class="form-control" [(ngModel)]="urediRecept.naziv"  placeholder="Naziv recepta">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Sastojci recepta</label>
+            <input class="form-control" [(ngModel)]="urediRecept.sastojci"  placeholder="Sastojci">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Opis recepta</label>
+            <input class="form-control" [(ngModel)]="urediRecept.opis"  placeholder="Opis">
+          </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="urediRecept.prikazi = false" >Close</button>
+          <button type="button" class="btn btn-primary" (click)="snimi()">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

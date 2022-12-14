@@ -1,0 +1,60 @@
+<button class="position-absolute top-2 start-50 translate-middle btn btn-light btn-primary rounded-pill" (click)="testirajWebApi()">
+  
+  
+  Ucitaj recepte 
+
+</button>
+
+<p>
+  Pretraga po nazivu... <input [(ngModel)]="naziv">
+</p>
+<table class="table table-warning">
+  <tr>
+    <th>ID</th>
+    <th>Naziv</th>
+    <th>Opis</th>
+    <th>Sastojci</th>
+     <th>Slika</th>
+    <th>Akcija</th>
+  </tr>
+  <tbody>
+  <tr *ngFor="let s of getReceptPodaci()">
+    <td>{{s.id}}</td>
+    <td>{{s.naziv}}</td>
+    <td>{{s.opis}}</td>
+    <td>{{s.sastojci}}</td>
+       <td><img class="profilna-slika" src="{{s.image}}"></td>
+    <td>
+      <button (click)="obrisiRecept(s)">Obrisi</button>
+      <button (click)="detalji(s)">Uredi</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+<div *ngIf="odabraniRecept != null" style="border: 1px solid blue">
+ 
+  <div class="mb-3">
+    <label class="form-label">Naziv recepta</label>
+    <input class="form-control" [(ngModel)]="odabraniRecept.naziv"  placeholder="Naziv recepta">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Sastojci</label>
+    <input class="form-control" [(ngModel)]="odabraniRecept.sastojci"  placeholder="Sastojci">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Opis recepta</label>
+    <input class="form-control" [(ngModel)]="odabraniRecept.opis"  placeholder="Opis">
+  </div>
+ 
+  <button class="form-label" (click)="snimi()">Snimi</button>
+</div>
+
+
+
+
+<app-edit-recept [urediRecept] = "odabraniRecept"></app-edit-recept>
+
+
